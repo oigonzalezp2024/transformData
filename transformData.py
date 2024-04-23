@@ -40,7 +40,7 @@ class TransformData:
                 obj["product"] = producto
                 obj["date"] = fechaCaptura
                 obj["suptitle"] = str("Webservice SIPSA DANE")
-                obj["title"] = str("Mercado de "+producto+"en "+ciudad)
+                obj["title"] = str("Mercado de "+producto+" en "+ciudad)
                 obj["xlabel"] = "dias del mes de abril"
                 obj["ylabel"] = "precios"
                 obj["x"] = [fechaCaptura]
