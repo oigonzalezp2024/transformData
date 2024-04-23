@@ -1,5 +1,5 @@
 
-# transformData  
+# TransformData  
 
 TransformData es una clase desarrollada para la transformación de datos sueltos en información útil para la toma de decisiones. Este código está destinado a ser modificado de acuerdo a una determinada lógica de modelo de negocio en constante evolución.
 
