@@ -1,0 +1,1 @@
+Aqui se guarda la data de extracción en formato json.
