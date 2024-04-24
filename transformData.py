@@ -23,6 +23,7 @@ class TransformData:
 
     def businessLogic(self, data:object)->list:
         casos = []
+        ciudades = []
         objs = {}
         for i in data:
             obj = {}
@@ -31,6 +32,20 @@ class TransformData:
             fechaCaptura = self.transFechaMesIni(str(i['fechaCaptura']))
             precio = int(i['precioPromedio'])
             caso = str(ciudad+producto.capitalize())
+
+            if(ciudad not in ciudades):
+                rr = 2
+                for i in ciudades:
+                    if(i in ciudad):
+                        rr = 1
+                        break
+                    if(ciudad in i):
+                        rr = 1
+                        ciudad = i
+                        caso = str(ciudad+producto.capitalize())
+                        break
+                if(rr==2):
+                    ciudades.append(ciudad)
 
             if(caso not in casos):
                 casos.append(caso)
@@ -54,6 +69,7 @@ class TransformData:
                 objs[caso]["x"] = xs 
                 objs[caso]["y"] = ys
                 objs[caso]["date"] = self.transFechaMesIni(str(i['fechaCaptura']))
+
         dataT = []
         for key in objs:
             dataT.append(objs[key])
