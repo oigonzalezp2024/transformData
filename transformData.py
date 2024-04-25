@@ -66,14 +66,28 @@ class TransformData:
                 xs.append(fechaCaptura)
                 ys = list(objs[caso]["y"])
                 ys.append(precio)
+
+                lsord = []
+                cnt = 0
+                for itnx in xs:
+                    lsord.append({
+                        "x":itnx,
+                        "y":ys[cnt],
+                    })
+                    cnt =cnt+1
+                lsord = sorted(lsord, key=lambda i:i['x'])
+                xs = []
+                ys = []
+                for xx in lsord:
+                    xs.append(xx["x"])
+                    ys.append(xx["y"])
                 objs[caso]["x"] = xs 
                 objs[caso]["y"] = ys
                 objs[caso]["date"] = self.transFechaMesIni(str(i['fechaCaptura']))
 
         dataT = []
-        for key in objs:
-            dataT.append(objs[key])
-            
+        for keyy in objs:
+            dataT.append(objs[keyy])
         return dataT
 
     def transMunicipio(self, data:str)->str:
